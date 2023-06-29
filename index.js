@@ -32,3 +32,27 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+
+function hasTargetSum(array, target) {
+  const visitedNumbers = {};
+
+
+  for (let i = 0; i < array.length; i++) {
+    const currentNumber = array[i];
+
+    
+    const complement = target - currentNumber;
+
+    
+    if (visitedNumbers[complement]) {
+      
+      return true;
+    }
+
+    
+    visitedNumbers[currentNumber] = true;
+  }
+
+  
+  return false;
+}
